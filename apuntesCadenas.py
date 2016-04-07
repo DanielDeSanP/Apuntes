@@ -39,13 +39,28 @@ cad2 = cad2.strip()
 cad2 = cad2.upper()
 print(cad2)
 
+#Todas las letras se vuelve mayusculas
+
 cad2 = cad2.lower()
 print(cad2)
+
+#Todas las letras se vuelve minusculas
 
 cad2 = cad2.capitalize()
 print(cad2)
 
+#El primer caracter se vuelve mayuscula
+
 listaCadenas = cad2.split(" ")
 print(listaCadenas)
 
-#El metodo split divide la cadena a partir de un caracter definido, y devuelve una tupla
+#Devuelve un tupla con los elementos de la cadena separados a partir del caracter especificado
+
+cad2 = "abc".join(".")
+print(cad2)
+
+edad = 10
+cadena3 = "Tu edad es " + str(edad)
+print(cadena3)
+
+#concatenacion de cadena con un valor entero casteado a cadena 
