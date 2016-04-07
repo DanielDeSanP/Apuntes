@@ -1,4 +1,3 @@
-import math
 
 #apuntes python 
 
