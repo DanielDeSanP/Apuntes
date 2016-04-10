@@ -5,6 +5,7 @@ def introducirEntero():
 	entero = int(raw_input("Opcion: "))
 	return entero
 
+
 def ifElseElif():
 	print("Ejemplo de un ciclo if else, elif")
 	print("Simpemente observa el codigo de la funcion seleccionar")
@@ -43,6 +44,7 @@ def forWhile():
 	for numero in (1,2,3,4,4,5):
 		print(numero)
 	pressEnter()
+	print("En el caso de while funciona de manera similar a otros lenguajes de programacion")
 
 	seleccionar()
 
