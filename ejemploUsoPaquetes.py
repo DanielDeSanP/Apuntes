@@ -1,3 +1,4 @@
+#!/usr/bin/python
 from scripts import first as primero
 
 
