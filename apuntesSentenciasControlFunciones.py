@@ -38,6 +38,12 @@ def forWhile():
 	pressEnter()
 	print("La variable fue iterando de dos en dos")
 	pressEnter()
+	print("O tambien podemos iterar en una sucesion de numeros que definamos")
+	pressEnter()
+	for numero in (1,2,3,4,4,5):
+		print(numero)
+	pressEnter()
+
 	seleccionar()
 
 def passWith():
