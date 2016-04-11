@@ -1,0 +1,21 @@
+.MODEL SMALL
+.STACK
+.DATA
+VAR1 DB "hola mundo$" ;definicion de la variable hola mundo
+VAR2 DB 13D,10D,"luci$"
+.CODE
+
+INICIO:
+
+	MOV AX,@DATA
+	MOV DS,AX
+	LEA DX,VAR1
+	MOV AH,9H
+	INT 21H
+	LEA DX,VAR2
+	MOV AH,9H
+	INT 21H
+	MOV AH,4CH
+	INT 21H
+
+END INICIO
