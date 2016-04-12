@@ -1,6 +1,7 @@
 #Manejo interesante de funciones en python 
 
-#Funciones con valores de entrada por defecto
+#Funciones con valores de entrada por defecto h
+
 
 def funcion1(a,b=1):
 	print(b)
