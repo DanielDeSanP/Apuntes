@@ -1,0 +1,20 @@
+.model small
+.stack
+.data
+
+NomDir DB 'C:\CREADIR',0
+.code
+INICIO:
+
+	MOV AX,@DATA
+	MOV DS,AX
+
+	LEA DX, NomDir
+	MOV AH,39h ;COMO EL COMANDO MD (CREA DIRECTORIO)
+	INT 21H
+	MOV AH, 3Bh; CAMBIA LA DIRECION CD
+	INT 21h
+	MOV AH, 4Ch
+	INT 21h
+
+END INICIO
