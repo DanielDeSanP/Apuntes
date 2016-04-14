@@ -55,3 +55,13 @@ let cadena4: String = a==b ? "a es igual a b": a<b ? "a es menor a b": a>b ? "a 
 print(cadena3)
 print(cadena4)
 
+/*
+Operador de rango
+	
+	Podemos recorrer una sucesion numérica,
+	esto sirve para los bucles for
+*/
+
+let sucesion1 = 1...3
+
+print(sucesion1)
