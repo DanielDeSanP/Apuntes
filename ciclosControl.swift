@@ -131,3 +131,102 @@ for var i in 1.stride(to: 20, by: 2)
 	print("\(i)")
 }
 
+// Para el do/while la sintaxis es parecida
+var iterador = 1 
+print("Repeat/While")
+repeat{
+
+	iterador++
+	print(iterador)
+
+	} while iterador < 4
+
+// El ciclo while es lo mismo que otros lenguajes de programacion
+
+/* Controladores de transferencia
+
+	Break --> Rompe con el ciclo sin importar el código restante
+	Continue --> Sigue a la siguiente iteración
+	Fallthrough --> Pasa a la siguiente case de un switch
+
+ */
+print("Controladores de flujo")
+
+let numeroAleatorio = (Int(arc4random()) % 20) + 1 //Con esto generamos un número aleatorio
+print("break")
+
+// Ejemplo de break
+for var index in 1...20
+{
+	if index == numeroAleatorio {
+		print(numeroAleatorio)
+		break
+	}
+}
+
+// Ejemplo de continue
+for var index in 1...20
+{
+	if index == 10 || index < 5 || index == 0
+	{
+		print("pasamos a la siguiente iteracion")
+		continue 
+	}
+
+	switch index 
+	{
+		case 1...10:
+			print("Un numero del 1 al 10")
+			break
+		case 11...20:
+			print("Un número del 11 al 20")
+			break
+		default:
+			break
+	}
+}
+
+// Ejemplo de fallthrough
+
+var entrada = 1 
+
+switch entrada 
+{
+	case 1:
+		print("1")
+		fallthrough
+	case 2:
+		print("2")
+		fallthrough
+	case 3:
+		print("3")
+		fallthrough
+	case 4:
+		print("4")
+		fallthrough
+	default:
+		print("This never hapened to me ")
+		break
+}
+
+/* Observemos que a pesar de que el switch solo iba dar acceso al caso 1, por
+medio del fallthroug tenemos la posibilidad de acceder al siguiente case sin
+importar de que la variable cumpla con la condición. Así lo hacemos en todo el 
+switch lo que resulta con que se imprime cada caso. */
+
+/* Se puede etiquetar bucles y por medio de esta se pueden hacer saltos con
+ break o continue */
+
+var valor = 1 
+var numero2 = 12
+buscar: while numero != valor {
+	valor = (Int(arc4random()) % 20 ) + 1
+	if numero2 != valor 
+	{
+		print("Nop")
+		continue buscar //Se especifica la etiqueta 
+	} else {
+		print("Yep")
+		break buscar 
+	}
+}
