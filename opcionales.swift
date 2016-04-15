@@ -49,7 +49,90 @@ import Foundation
 	vex la opcional1 aparecerá Optional(5), para que podamos acceder
 	al valor contenido tenemos que usar el operador "implicitly unwrap" !  
 	
-	to be continued ...
 	*/
 
- 
+// Una forma de comprobar si una opcional tiene contenido
+var opcional5 : Int?
+
+if let auxiliar = opcional1
+{
+	print("Tiene contenido")
+} else {
+	print("No tiene valor")
+}
+
+if let auxiliar = opcional5 
+{
+	print("Tiene contenido")
+} else {
+	print("No tiene contenido")
+}
+
+// Podemos evaluar si varias opcionales tienen contenido
+// Hacer la prueba, quitando la asignación a opcional5
+// opcional5 = 2
+
+if let aux1 = opcional1, let aux2 = opcional2, let aux3 = opcional3, let aux4 = opcional5 where opcional5! != 0 
+{
+	print(opcional1!,opcional2!,opcional3!)
+} else {
+	print("No cumple condicion ")
+}
+
+// Si se descomenta dará error, ya que solo fue declaradar aux1 para ser usada dentro del if
+// print(aux1)
+
+/* Uso del "guard"
+
+	El guard nos es útil para verificar si la opcional
+	contiene algo , o no, para ello se integra con las 
+	exepciones.
+ */
+
+ guard let aux = opcional1 else {
+ 	throw NSError(domain: "Opcional vacio", code: 0, userInfo: nil)
+ }
+ print(aux)
+
+ // El caso anterior se validó la opcional y se guarda en la variable aux, que 
+ // se puede usar en el resto del código, a diferencia de los "if"
+
+/*
+let opcional6 : Int?
+ guard let aux1 = opcional6 else {
+ 	throw NSError(domain: "Opcional Vacio", code: 0, userInfo: nil)
+ }
+
+ print(aux1)
+
+
+ 	El bloque anterior causará un error ya que no se validará la opcional, lo
+ 	cual hará que se llame al error para interrumpir la ejecución. Como mensioné antes,
+ 	"guard" es muy útil para manejo de exepciones, ya que nos aseguramos de que
+ 	la opcional tenga un valor, si lo tiene, crea una variable que contiene 
+ 	el contenido de la opcional y se usa en ek resto del código. Si no se hiciera
+ 	es llamada al error, habría otro error por una variable que recibe un valor nil.
+ */
+
+
+ /* Operador de coalescencia nula ??
+
+ 	Con este operador podemos dejar de arriesgarnos a que 
+ 	una opcional esté vacia, ya que funciona de manera similar al operador
+ 	ternario. Podemos definir un valor por defecto que puede contener 
+ 	la variable opcional en caso de que este se encuentre nula en ese momento */
+
+var mensaje: String?
+var mensajeDefault : String = "Mensaje por default"
+var mensajeDesplegable = mensaje ?? mensajeDefault
+
+print(mensajeDesplegable)
+
+// Como mensaje estaba vacío se utiliza mensajeDefault para evitar problemas
+
+mensaje = "Hola"
+mensajeDesplegable = mensaje ?? mensajeDefault
+
+print(mensajeDesplegable)
+
+//Ahora mensaje tiene contenido, entonces el contenido de esta pasa a mensajeDesplegable
