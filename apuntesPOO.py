@@ -70,3 +70,58 @@ otrocirculo = otroCirculo()
 	
 	
 """
+
+
+"""
+	En otros lenguajes de programación exiten los conceptos
+	private, public, protected, para designar el acceso que se
+	tiene a ciertas característcas de la clase. En python 
+	no existen esos conceptos como tal, existen convenciones 
+	entre programadores, y un mecanismo que simula los métodos
+	private.
+"""
+
+# # class privado:
+# # 	def __init__(self):
+# # 		self.__atributo = 1
+
+# # 	def _metodoPrivado(self):
+# # 		print("Metodo privado")
+
+
+# # p = privado
+# # p._metodoPrivado
+# # # print(p.__atributo) Python no dejará el acceso de esa manera
+
+# print(p_privado__atributo)
+
+
+# METODOS DE CLASE
+
+"""
+	Los métodos de clase son parecidos a las clases abstractas
+	en el sentido de que pueden ser invocadas sin la necesidad 
+	de que se instancie la clase
+"""
+
+class test:
+	atributo1 = 1
+	def __init__():
+		self.atributo2 = 1
+	@classmethod
+	def metodoClase(cls):
+		print(cls.atributo1)
+	@staticmethod
+	def metodoEstatico():
+		print("Método estático")
+
+test.metodoClase() #No se ha instanciado la clase
+test.metodoEstatico()
+
+t = test #Se instanció la clase
+t.metodoClase()
+
+# Observemos que sea o no instanciada la clase podemos acceder al método
+# La principal diferencia entre un metodo de clase y un metodo estático es 
+# que el método estático no puede acceder a los atributos de la clase
+# Actua de manera independiente a la clase.
