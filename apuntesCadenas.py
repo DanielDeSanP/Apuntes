@@ -1,10 +1,10 @@
-#! /usr/bin/python
-# -*- coding:utf-8 -*-
+
+
 #apuntes python 
 
 #metodos de cadenas
 
-cad = " Hola Mundo ñ"
+cad = " Hola Mundo"
 print(cad)
 largo = len(cad)
 print(largo)
