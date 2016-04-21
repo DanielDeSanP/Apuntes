@@ -42,6 +42,9 @@ print(tupla4.index(3))
 print(tupla4.count(2))
 #Podemos contar cuantas veces aparece un elemento especificado
 
+tamanio = len(tupla2) #Con el metodo len podemos obtener el numero de elementos en una tupla.
+print("Tamanio")
+print(tamanio)
 
 #Una forma mas elegante de crear y llenar tuplas
 

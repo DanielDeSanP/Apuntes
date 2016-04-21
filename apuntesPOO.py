@@ -106,7 +106,7 @@ otrocirculo = otroCirculo()
 
 class test:
 	atributo1 = 1
-	def __init__():
+	def __init__(self):
 		self.atributo2 = 1
 	@classmethod
 	def metodoClase(cls):
@@ -118,10 +118,127 @@ class test:
 test.metodoClase() #No se ha instanciado la clase
 test.metodoEstatico()
 
-t = test #Se instanció la clase
+t = test() #Se instanció la clase
 t.metodoClase()
 
 # Observemos que sea o no instanciada la clase podemos acceder al método
 # La principal diferencia entre un metodo de clase y un metodo estático es 
 # que el método estático no puede acceder a los atributos de la clase
 # Actua de manera independiente a la clase.
+
+
+# Metodo __new__ e __init__
+
+"""
+	Cuando instanciamos una clase, primero se llama al constructor.
+	El constructor en Python es __new__ quien se encarga de la creación
+	del objeto, luego este método llama a __init__ para inicializar
+	el objeto como el programador desee.
+
+"""
+
+class Objeto:
+	def __new__(cls):
+		print("Metodo New")
+		return super(Test, cls).__new__(cls) # Debe retornar esto para llamar a __init__
+
+	def __init__(self):
+		print("Metodo init")
+
+	def __del__(self):
+		print("El objeto murio")
+
+objeto = Objeto()
+
+# Destructor 
+
+"""
+	Igual que en C++, en Python existen los métodos destructores
+	estos son útiles en caso de que se necesite llevar a cabo
+	una accion cuando el objeto es destruido. A diferencia de C++
+	Python tiene recolector de basura, así el destructor es llamado
+	de forma automática, pero dicho método se puede sobreescribir.
+
+	Si se observa, al final de la ejecucion se llama al destructor,
+	pero también existe la posibilidad de que se llame antes.
+"""
+
+class Objeto2:
+	def __del__(self):
+		print("El objeto 2 murió")
+
+objeto2 = Objeto2()
+
+objeto2.__del__()
+
+print("Hola")
+
+# Representacion de formatos
+
+"""
+	Por medio de Representacion de formatos podemos saber que contenidos llevan 
+	las clases, o un objeto en específico, para de este modo crear otro objeto igual.
+
+"""
+
+class Moto:
+	def __init__(self, marca = "No definido", modelo = "No definido"):
+		self.marca = marca
+		self.modelo = modelo
+	def __repr__(self):  # El metodo responde a repr(m) y siempre deve devolver una cadena
+		return ("{0} - {1}".format(self.marca,self.modelo))
+
+	def __str__(self):	#Este responde a print()
+		return ("{0} ---> {1}".format(self.marca,self.modelo))
+
+m = Moto()
+print(repr(m))
+m2 = Moto("Harley Davidson","Street 750")
+print(repr(m2))
+print(m2)
+
+# Herencia
+
+class Padre(object):
+	def __init__(self):
+		print("constructor Padre")
+		self.apellido = "Mendez"
+	def metodo2(self):
+		print("Metodo padre")
+
+
+class Hijo(Padre):
+	def __init__(self, nombre, apellido):
+		self.nombre = nombre
+		print("constructor hijo ")
+		super(Hijo,self).__init__()
+	def metodo1(self):
+		print("Metodo hijo")
+
+hijo = Hijo("Eduardo","Mendez")
+hijo.metodo1()
+hijo.metodo2() 
+print(hijo.apellido)
+
+"""
+	En el ejemplo anterior la clase hijo hereda de la clase padre,
+	la clase hijo tiene su propio constructor que sobrescribe a la
+	clase padre, pero este llama al constructor de la clase padre,
+	para ello la clase padre tiene que heredar de la clase object.
+
+	Todos los atributos y métodos del padre pasan al hijo.
+"""
+
+class Madre(object):
+	def __init__(self):
+		print("Constructor madre")
+		self.apellido = "Garcia"
+class Hija(Madre,Padre): #Python soporta herencia múltiple
+	def __init__(self):
+		print("Constructor hija")
+		super(Hija,self).__init__()
+hija = Hija()
+hija.metodo2()
+print(hija.apellido)
+
+
